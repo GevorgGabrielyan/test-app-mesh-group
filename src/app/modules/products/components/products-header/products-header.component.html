@@ -1,0 +1,7 @@
+<div class="products-header d-flex align-items-center justify-content-between">
+  <h3 class="py-4 title">{{ title }}</h3>
+  <div class="d-flex align-items-center">
+    <button *ngFor="let item of actions" type="button" class="btn ml-2" [ngClass]="item.class" (click)="item.action()">{{ item.title }}</button>
+    <button *ngIf="showBackBtn" type="button" class="btn ml-2 btn-primary" (click)="back()">Back</button>
+  </div>
+</div>

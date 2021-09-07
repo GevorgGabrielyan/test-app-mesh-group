@@ -1,0 +1,26 @@
+@import "../../../../../assets/styles/mixines";
+
+.product-list-container {
+  table {
+    table-layout: fixed;
+    tr {
+      transition: 0.3s;
+      cursor: pointer;
+
+      &:hover {
+        background: $app-primary-20;
+      }
+
+      td {
+        div {
+          @include line-overflow(1)
+        }
+
+        .edit-action {
+          text-decoration: underline;
+          color: $app-primary-btn;
+        }
+      }
+    }
+  }
+}
