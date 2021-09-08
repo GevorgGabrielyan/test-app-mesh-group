@@ -1,0 +1,43 @@
+<div class="product-list-container position-relative" *ngIf="{ products: products$ | async } as data">
+  <div class="spinner-border" role="status" *ngIf="loading$ | async">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <app-products-header [title]="'Products'" [actions]="actions"></app-products-header>
+  <table class="table shadow-block">
+    <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Code</th>
+      <th scope="col">Cost</th>
+      <th scope="col">Weight</th>
+      <th scope="col">Description</th>
+      <th scope="col" style="width: 110px">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let product of data.products">
+      <td>
+        <div>{{ product.name }}</div>
+      </td>
+      <td>
+        <div>{{ product.code }}</div>
+      </td>
+      <td>
+        <div>{{ product.cost | currency }}</div>
+      </td>
+      <td>
+        <div>{{ product.weight || '--' }}</div>
+      </td>
+      <td>
+        <div data-bs-toggle="tooltip" data-bs-placement="top" [title]="product.description">{{ product.description || '--' }}</div>
+      </td>
+      <td>
+        <div class="d-flex align-items-center justify-content-between">
+          <div class="edit-action" [routerLink]="['/products/edit', product.id]">Edit</div>
+          <div class="edit-action" (click)="removeProduct(product.id)">Remove</div>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

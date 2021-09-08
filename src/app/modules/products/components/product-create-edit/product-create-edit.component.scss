@@ -1,0 +1,12 @@
+@import "../../../../../assets/styles/mixines";
+
+.product-form-container {
+  height: 100%;
+  textarea {
+    resize: none;
+    @include styled-scrollbar()
+  }
+  .footer {
+    border-top: 1px solid lightgray;
+  }
+}

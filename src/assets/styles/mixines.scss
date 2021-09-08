@@ -1,0 +1,35 @@
+@import 'variables';
+
+@mixin line-overflow($line-clamp: 2, $size: 14px) {
+  display: -webkit-box;
+  -webkit-line-clamp: $line-clamp;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: $size;
+  word-break: break-all;
+}
+
+@mixin styled-scrollbar($scrollbar-thumb-color: $app-primary-50, $scrollbar-track-color: $app-primary-10) {
+  /* Works on Firefox */
+  scrollbar-color: $scrollbar-thumb-color $scrollbar-track-color;
+  scrollbar-width: thin !important;
+
+  /* Works on Chrome, Edge, and Safari */
+  &::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $scrollbar-thumb-color;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $scrollbar-track-color;
+  }
+
+  & {
+    scrollbar-face-color: $scrollbar-thumb-color;
+    scrollbar-track-color: $scrollbar-track-color;
+  }
+}
